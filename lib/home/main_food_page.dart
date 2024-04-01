@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:food_delivery/utils/app_colors.dart';
+import 'package:food_delivery/utils/dimensions.dart';
 import 'package:food_delivery/widgets/small_text.dart';
 
 import '../widgets/big_text.dart';
@@ -17,13 +18,15 @@ class MainFoodPage extends StatefulWidget {
 class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
+    // print('current height is ${MediaQuery.of(context).size.height}');
     return Scaffold(
         body: Column(
       children: [
+        // showing the header
         Container(
           child: Container(
-            margin: const EdgeInsets.symmetric(vertical: 15),
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            margin: EdgeInsets.symmetric(vertical: Dimensions.height15),
+            padding: EdgeInsets.symmetric(horizontal: Dimensions.width20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -45,21 +48,23 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   ],
                 ),
                 Container(
-                  height: 45,
-                  width: 45,
+                  height: Dimensions.height45,
+                  width: Dimensions.width45,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(Dimensions.radius15),
                     color: AppColors.mainColor,
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.search,
                     color: Colors.white,
+                    size: Dimensions.iconSize24,
                   ),
                 )
               ],
             ),
           ),
         ),
+        //showing the body
         const FoodPageBody(),
       ],
     ));
