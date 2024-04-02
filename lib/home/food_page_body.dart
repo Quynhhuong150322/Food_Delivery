@@ -116,35 +116,100 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ),
         ),
         // ======= list of food and images
-        SizedBox(
-          height: 900,
-          child: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: Dimensions.width20,
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 100,
-                      height: 100,
+        ListView.builder(
+          padding: EdgeInsets.only(top: Dimensions.height20),
+          physics: const NeverScrollableScrollPhysics(), // cuộn trang
+          shrinkWrap: true,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            // ============image section
+            return Container(
+              margin: EdgeInsets.only(
+                  left: Dimensions.width20,
+                  right: Dimensions.width20,
+                  bottom: Dimensions.height10),
+              child: Row(
+                children: [
+                  Container(
+                    width: Dimensions.ListViewImg120,
+                    height: Dimensions.ListViewImg120,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimensions.radius20),
+                      color: Colors.white38,
+                      image: const DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage("assets/image/food2.jpg"),
+                      ),
+                    ),
+                  ),
+                  //===============text container
+
+                  Expanded(
+                    child: Container(
+                      height: Dimensions.ListViewTextCont100,
+                      // width: Dimensions.width200,
                       decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.circular(Dimensions.radius20),
-                        color: Colors.white38,
-                        image: const DecorationImage(
-                          image: AssetImage("assets/image/food2.jpg"),
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(Dimensions.radius20),
+                          bottomRight: Radius.circular(Dimensions.radius20),
+                        ),
+                        color: Colors.amber[50],
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: Dimensions.width10,
+                          right: Dimensions.width10,
+                          top: Dimensions.height5,
+                          bottom: Dimensions.height5,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            BigText(text: 'Nutritious fruit meal in China'),
+                            SizedBox(
+                              height: Dimensions.height10,
+                            ),
+                            SmallText(text: 'With Chinese characteristics'),
+                            SizedBox(
+                              height: Dimensions.height10,
+                            ),
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                IconAndText(
+                                  icon: Icons.circle_sharp,
+                                  text: 'Normal',
+                                  iconColor: AppColors.yellowColor,
+                                ),
+                                // SizedBox(
+                                //   width: 10,
+                                // ),
+                                IconAndText(
+                                  icon: Icons.add_location_alt_sharp,
+                                  text: '1.7km',
+                                  iconColor: AppColors.mainColor,
+                                ),
+                                // SizedBox(
+                                //   width: 10,
+                                // ),
+                                IconAndText(
+                                  icon: Icons.access_time,
+                                  text: '32min',
+                                  iconColor: AppColors.yellowColor,
+                                ),
+                              ],
+                            )
+                          ],
                         ),
                       ),
                     ),
-                  ],
-                ),
-              );
-            },
-          ),
-        )
+                  )
+                ],
+              ),
+            );
+          },
+        ),
       ],
     );
   }
