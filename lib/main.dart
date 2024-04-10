@@ -4,8 +4,11 @@ import 'package:get/get.dart';
 
 import 'pages/food/popular_food_detail.dart';
 import 'pages/food/recommended_food_detail.dart';
+import 'helper/dependencies.dart' as dep;
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dep.init();
   runApp(const MyApp());
 }
 
@@ -23,8 +26,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: const PopularFoodDetail(),
-      // home: const MainFoodPage(),
-      home: const RecommendedFood(),
+      home: const MainFoodPage(),
+      // home: const RecommendedFood(),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 // 844 * 390
@@ -6,6 +7,10 @@ class Dimensions {
   // =============Home page===========
   static double screenHeight = Get.context!.height;
   static double screenWidth = Get.context!.width;
+  static Size screenSize() {
+    return MediaQuery.of(Get.context!).size;
+  }
+
   // chieu cao 1 phan tu giao dien
   // lay 884 (kich thuoc man hinh) / kich thuoc phan tu vd 844/10
   static double pageView = screenHeight / 2.64;

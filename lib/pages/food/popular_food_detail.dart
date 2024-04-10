@@ -7,8 +7,6 @@ import 'package:food_delivery/utils/app_colum.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/big_text.dart';
-import '../../widgets/icon_and_text.dart';
-import '../../widgets/small_text.dart';
 import 'widgets/exandable_text_widget.dart';
 
 class PopularFoodDetail extends StatelessWidget {

@@ -9,12 +9,15 @@ class PopularIcon extends StatelessWidget {
   final Color backgroundColor;
   final Color iconColor;
   final double size;
-  const PopularIcon(
-      {super.key,
-      required this.nameIcon,
-      this.backgroundColor = const Color(0xFFfcf4e4),
-      this.iconColor = const Color(0xFF758d54),
-      this.size = 40});
+  final double iconSize;
+  const PopularIcon({
+    super.key,
+    required this.nameIcon,
+    this.backgroundColor = const Color(0xFFfcf4e4),
+    this.iconColor = const Color(0xFF758d54),
+    this.size = 30,
+    this.iconSize = 16,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,7 @@ class PopularIcon extends StatelessWidget {
       child: Icon(
         nameIcon,
         color: iconColor,
-        size: Dimensions.iconSize16,
+        size: iconSize,
       ),
     );
   }
